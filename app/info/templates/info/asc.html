@@ -1,4 +1,12 @@
 {% extends "info/index.html" %}
 {% block info_content %}
-asc
+{% csrf_token %}
+<form method="post">
+    <select id="report">
+        {% for r in reports %}
+            <option value=r>{{ r }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Отправить" />
+</form>
 {% endblock %}

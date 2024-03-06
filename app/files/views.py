@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpRequest
 
 
 # Create your views here.
 def index(request: HttpRequest):
-    return HttpResponse(b'Page under constructions')
+    return render(request, 'plug.html')

@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'info',
     'library',
     'main',
-    'samples',
+    'social',
     'settings',
     'todo',
 ]

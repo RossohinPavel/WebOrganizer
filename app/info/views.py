@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpRequest
 
 
 # Create your views here.
 def index(request: HttpRequest):
-    return HttpResponse(b'Page under constructions')
+    info_type = request.GET.get('type', None) or 'order'
+    return render(request, f'info/{info_type}.html')

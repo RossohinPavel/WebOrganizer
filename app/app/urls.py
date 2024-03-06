@@ -24,6 +24,7 @@ urlpatterns = [
     path('clients/', include('clients.urls')),
     path('files/', include('files.urls')),
     path('info/', include('info.urls')),
-    path('samples/', include('samples.urls')),
+    path('settings/', include('settings.urls')),
+    path('social/', include('social.urls')),
     path('todo/', include('todo.urls')),
 ]

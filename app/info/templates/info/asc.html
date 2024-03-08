@@ -1,12 +1,13 @@
 {% extends "info/index.html" %}
 {% block info_content %}
-{% csrf_token %}
-<form method="post">
+<link rel="stylesheet" href="asc_style.css">
+<form id="upload_container" method="post">
+    {% csrf_token %}
     <select id="report">
         {% for r in reports %}
             <option value=r>{{ r }}</option>
         {% endfor %}
     </select>
-    <input type="submit" value="Отправить" />
+    <input type="file" name=""/>
 </form>
 {% endblock %}

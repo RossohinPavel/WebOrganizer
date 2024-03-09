@@ -1,13 +1,14 @@
 {% extends "info/index.html" %}
+{% load static %}
 {% block info_content %}
-<link rel="stylesheet" href="asc_style.css">
-<form id="upload_container" method="post">
+<link type="text/css" href="{% static 'info/css/style.css' %}" rel="stylesheet" />
+<form id="upload-container" method="POST">
     {% csrf_token %}
     <select id="report">
         {% for r in reports %}
             <option value=r>{{ r }}</option>
         {% endfor %}
     </select>
-    <input type="file" name=""/>
+    <input type="file" name="file" />
 </form>
 {% endblock %}

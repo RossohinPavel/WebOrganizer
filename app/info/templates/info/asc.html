@@ -1,14 +1,30 @@
 {% extends "info/index.html" %}
+
 {% load static %}
+
 {% block info_content %}
-<link type="text/css" href="{% static 'info/css/style.css' %}" rel="stylesheet" />
-<form id="upload-container" method="POST">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <select id="report">
         {% for r in reports %}
             <option value=r>{{ r }}</option>
         {% endfor %}
     </select>
-    <input type="file" name="file" />
+    <input type="file" name="myfile">
+    <button type="submit">Отправить</button>
 </form>
+{% if tables %}
+    {% for key, value in tables.items %}
+        <h4>{{ key }}</h4>
+        <table>
+            {% for row in value %}
+                <tr>
+                    {% for data in row %}
+                        <td>{{ data }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+{% endif %}
 {% endblock %}

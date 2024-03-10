@@ -15,4 +15,9 @@ def index(request: HttpRequest):
 
 def asc_index(request: HttpRequest):
     context = {'reports': asc.REPORTS.keys()}
+
+    myfile = request.FILES.get('myfile')
+    if request.method == 'POST' and myfile:
+        context['tables'] = asc.check_overdue(myfile)
+
     return render(request, f'info/asc.html', context=context)

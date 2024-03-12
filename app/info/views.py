@@ -1,19 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from .scripts import asc
 
 
-# Create your views here.
 def index(request: HttpRequest):
-    _type = request.GET.get('type', None) or request.POST.get('type', None) or 'order'
-    match _type:
-        case 'asc':
-            return asc_index(request)
-        case _:
-            return render(request, f'info/{_type}.html')
+    return redirect(order_view)
 
 
-def asc_index(request: HttpRequest):
+# Create your views here.
+def order_view(request: HttpRequest):
+    return render(request, 'info/order.html')
+
+
+def report_view(request: HttpRequest):
+    return render(request, 'info/report.html')
+
+
+def asc_view(request: HttpRequest):
     context = {'reports': asc.REPORTS.keys()}
 
     myfile = request.FILES.get('myfile')
